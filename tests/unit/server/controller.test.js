@@ -5,9 +5,6 @@ import { Service } from "../../../server/service.js";
 import TestUtil from "../_util/testUtil.js";
 
 const {
-    location: {
-        home
-    },
     pages: {
         homeHTML
     }
@@ -24,7 +21,6 @@ describe("#Controller - test suite for intermediation layer between business rul
         const controller = new Controller();
 
         const fileExtension = '.ext';
-        const filename = `file${fileExtension}`;
         
         const mockFileStream = TestUtil.generateReadableStream(['data']);
         
@@ -38,7 +34,8 @@ describe("#Controller - test suite for intermediation layer between business rul
 
         const fileStream = await controller.getFileStream(homeHTML);
 
-        expect(Service.prototype.getFileStream).toHaveBeenCalled();
+        expect(Service.prototype.getFileStream).toBeCalledTimes(1);
+        expect(Service.prototype.getFileStream).toHaveBeenCalledTimes(1);
         expect(fileStream).toEqual({
             stream: mockFileStream,
             type: fileExtension
