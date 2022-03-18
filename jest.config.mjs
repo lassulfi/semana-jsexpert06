@@ -11,20 +11,19 @@ const defaultConfig = {
       functions: 100,
       lines: 100,
       statements: 100,
-    },
+    }
   },
   maxWorkers: "50%",
   watchPathIgnorePatterns: [
-    "node_modules",
+    "node_modules"
   ],
   transformIgnorePatterns: [
-    "node_modules",
+    "node_modules"
   ]
-};
+}
 
 export default {
-  projects: [
-      {
+  projects: [{
       ...defaultConfig,
       testEnvironment: "node",
       displayName: "backend",
@@ -34,7 +33,7 @@ export default {
       ],
       transformIgnorePatterns: [
         ...defaultConfig.transformIgnorePatterns,
-        "public",
+        "public"
       ],
       testMatch: [
         "**/tests/**/server/**/*.test.js"
@@ -49,11 +48,11 @@ export default {
       ],
       transformIgnorePatterns: [
         ...defaultConfig.transformIgnorePatterns,
-        "server",
+        "server"
       ],
       testMatch: [
         "**/tests/**/public/**/*.test.js"
       ]
-    }
+    },
   ]
 }
